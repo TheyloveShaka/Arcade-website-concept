@@ -31,6 +31,7 @@
   --wa-green-dark: #1baa4f;
 
   --pixel-font: "Press Start 2P", monospace;
+  --logo-font: "Titan One", "Nunito", system-ui, sans-serif; /* closest Google Font to the logo's bubble lettering */
   --body-font: "Nunito", system-ui, sans-serif;
 
   --shadow-pop: 0 6px 0 rgba(4, 8, 28, 0.5);
@@ -38,6 +39,9 @@
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
+
+/* The hidden attribute must always win, even over display rules on classes */
+[hidden] { display: none !important; }
 
 html { scroll-behavior: smooth; }
 
@@ -211,11 +215,21 @@ img, canvas { max-width: 100%; }
   93%, 100% { color: var(--yellow); }
 }
 
-.hero-title { display: grid; gap: 0.35em; margin-bottom: 1.2rem; }
+.hero-title {
+  display: grid;
+  gap: 0.08em;
+  margin-bottom: 1.2rem;
+  transform: rotate(-2deg); /* playful tilt, like the logo's square */
+  transform-origin: left center;
+}
 .ht-line {
-  font-family: var(--pixel-font);
-  font-size: clamp(1.7rem, 5.5vw, 3.1rem);
-  text-shadow: 4px 4px 0 rgba(4, 8, 28, 0.6);
+  font-family: var(--logo-font);
+  font-size: clamp(2.4rem, 7.5vw, 4.4rem);
+  letter-spacing: 0.02em;
+  line-height: 1.05;
+  text-shadow:
+    0.055em 0.055em 0 var(--blue-deep),
+    0.11em 0.11em 0 rgba(4, 8, 28, 0.55);
 }
 
 .hero-sub {
@@ -487,7 +501,6 @@ img, canvas { max-width: 100%; }
 .cabinet-buttons i:nth-child(3) { background: var(--lime); }
 
 /* ============ REWARD + NAME ENTRY ============ */
-.game-reward[hidden] { display: none; }
 .game-reward {
   max-width: 430px;
   margin: 1.6rem auto 0;
