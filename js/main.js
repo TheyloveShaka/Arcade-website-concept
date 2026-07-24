@@ -232,6 +232,46 @@
   /* ---------- section renderers ---------- */
   const $ = (id) => document.getElementById(id);
 
+  /* ---------- drop-in media slots ----------
+     Tries assets/<base>.mp4 (muted loop), then .jpg/.png/.webp/.jpeg.
+     The container stays hidden until something actually loads, so the
+     site looks intentional with zero assets present.               */
+  function fillMedia(container, base, onFound) {
+    const video = document.createElement("video");
+    video.muted = true;
+    video.loop = true;
+    video.autoplay = true;
+    video.playsInline = true;
+    video.setAttribute("aria-hidden", "true");
+    video.src = `assets/${base}.mp4`;
+    video.addEventListener("loadeddata", () => {
+      container.appendChild(video);
+      container.hidden = false;
+      video.play().catch(() => {});
+      if (onFound) onFound("video");
+    });
+    video.addEventListener("error", () => tryImages(["jpg", "png", "webp", "jpeg"]));
+
+    function tryImages(exts) {
+      if (!exts.length) return;
+      const img = new Image();
+      img.alt = "";
+      img.src = `assets/${base}.${exts[0]}`;
+      img.onload = () => {
+        container.appendChild(img);
+        container.hidden = false;
+        if (onFound) onFound("image");
+      };
+      img.onerror = () => tryImages(exts.slice(1));
+    }
+  }
+
+  function fillCardMedia(gridEl) {
+    gridEl.querySelectorAll(".card-media[data-media]").forEach((el) =>
+      fillMedia(el, el.dataset.media)
+    );
+  }
+
   function renderHero() {
     $("hero-badge").textContent = SITE.heroBadge;
     $("hero-tagline").textContent = SITE.tagline.toUpperCase();
@@ -242,12 +282,14 @@
       .map(
         (a) => `
         <div class="card reveal">
+          <div class="card-media" data-media="${a.media}" hidden></div>
           <canvas class="pixel-sprite" data-sprite="${a.icon}" data-scale="5" aria-hidden="true"></canvas>
           <h3>${a.name}</h3>
           <p>${a.blurb}</p>
         </div>`
       )
       .join("");
+    fillCardMedia($("attractions-grid"));
   }
 
   function renderDeals() {
@@ -285,12 +327,14 @@
       .map(
         (p) => `
         <div class="card reveal">
+          <div class="card-media" data-media="${p.media}" hidden></div>
           <h3>${p.name}</h3>
           <p>${p.blurb}</p>
           <span class="card-from">${p.from}</span>
         </div>`
       )
       .join("");
+    fillCardMedia($("parties-grid"));
   }
 
   function renderQuotes() {
@@ -444,13 +488,25 @@
     },
   };
 
-  /* ---------- promo video ---------- */
+  /* ---------- hero media: promo video, else poster photo ---------- */
   function initVideo() {
     const video = $("promo-video");
     const placeholder = $("promo-placeholder");
     if (!video) return;
+
+    // Poster photo (assets/hero.jpg/.png/.webp) upgrades the placeholder
+    if (MEDIA.heroPoster) {
+      const posterBox = document.createElement("div");
+      posterBox.className = "hero-poster";
+      posterBox.hidden = true;
+      placeholder.prepend(posterBox);
+      fillMedia(posterBox, MEDIA.heroPoster, () => {
+        placeholder.classList.add("has-poster");
+      });
+    }
+
+    // Real promo video wins over everything
     video.src = MEDIA.promoVideo;
-    if (MEDIA.promoPoster) video.poster = MEDIA.promoPoster;
     video.addEventListener("loadeddata", () => {
       video.hidden = false;
       placeholder.hidden = true;

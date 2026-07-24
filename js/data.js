@@ -61,40 +61,49 @@ const SITE = {
 
   parties: [
     {
+      media: "party-birthday",
       name: "Birthday Blast",
       blurb: "Private party corner, game credits for every guest, decorations & a dedicated host.",
       from: "from UGX 350,000", // PLACEHOLDER
     },
     {
+      media: "party-school",
       name: "School Day Out",
       blurb: "Weekday group packages for schools — games, soft play & meals at group rates.",
       from: "custom quote",
     },
     {
+      media: "party-corporate",
       name: "Corporate & Teams",
       blurb: "After-hours arcade takeovers and team tournaments on our big machines.",
       from: "custom quote",
     },
   ],
 
+  /* Each attraction/party can show a photo or looping video: drop a file at
+     assets/<media>.jpg (or .png / .webp / .mp4) and it appears automatically. */
   attractions: [
     {
       icon: "joystick",
+      media: "fun-arcade",
       name: "Arcade Games",
       blurb: "Racing rigs, basketball hoops, claw machines, air hockey and the latest video arcade hits.",
     },
     {
       icon: "slide",
+      media: "fun-softplay",
       name: "Soft Play Land",
       blurb: "A safe, padded adventure world of slides, ball pits and climbing for the little ones.",
     },
     {
       icon: "coffee",
+      media: "fun-cafe",
       name: "The Café",
       blurb: "Great coffee for the grown-ups, slushies and sweet treats for the champions in training.",
     },
     {
       icon: "cake",
+      media: "fun-parties",
       name: "Parties & Events",
       blurb: "Birthdays, school trips and team days — we handle the fun, the food and the cleanup.",
     },
@@ -154,8 +163,9 @@ const SITE = {
   },
 };
 
-/* Video slots — drop real files at these paths and they appear automatically. */
+/* Hero media — drop real files at these paths and they appear automatically.
+   promo.mp4 wins if both exist; hero.jpg/.png shows as a poster until then. */
 const MEDIA = {
-  promoVideo: "assets/promo.mp4",   // hero/“see it in action” video
-  promoPoster: "",                  // optional poster image path
+  promoVideo: "assets/promo.mp4",   // hero video (portrait ~9:12 looks best)
+  heroPoster: "hero",               // tries assets/hero.jpg / .png / .webp
 };

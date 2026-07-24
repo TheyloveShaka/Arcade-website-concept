@@ -275,6 +275,27 @@ img, canvas { max-width: 100%; }
 .hero-media-placeholder .hint { font-size: 0.78rem; color: rgba(255, 255, 255, 0.55); line-height: 1.6; }
 .hero-media-placeholder code { color: var(--yellow); }
 
+/* When assets/hero.jpg exists it fills the frame; the "coming soon" note
+   shrinks to a slim badge and the logo/hint get out of the way. */
+.hero-poster { position: absolute; inset: 0; line-height: 0; }
+.hero-poster img, .hero-poster video {
+  width: 100%; height: 100%; object-fit: cover;
+}
+.hero-media-placeholder.has-poster .promo-logo,
+.hero-media-placeholder.has-poster .hint { display: none; }
+.hero-media-placeholder.has-poster .pixel-font {
+  position: absolute;
+  left: 50%; bottom: 0.9rem;
+  transform: translateX(-50%);
+  background: rgba(10, 16, 48, 0.8);
+  border: 2px solid var(--cyan-dark);
+  border-radius: 3px;
+  padding: 0.7em 1em;
+  font-size: 0.5rem;
+  line-height: 1.6;
+  white-space: nowrap;
+}
+
 /* ============ PIXEL SEPARATORS ============ */
 /* Chunky pixel skyline with depth: each block has a lit top edge
    and a shaded right side, standing on a navy base line. */
@@ -338,6 +359,24 @@ img, canvas { max-width: 100%; }
   justify-items: center;
   gap: 0.8rem;
   transition: transform 0.15s ease;
+  overflow: hidden; /* clips the full-bleed media banner to the rounded corners */
+  align-content: start;
+}
+/* Drop-in photo/video banner: full-bleed across the card top */
+.card-media {
+  width: calc(100% + 2.8rem);
+  margin: -1.6rem -1.4rem 0.2rem;
+  aspect-ratio: 16 / 10;
+  border-bottom: 3px solid var(--ink);
+  background: var(--space-1);
+  line-height: 0;
+}
+.card-media img,
+.card-media video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 .card:hover { transform: translateY(-5px); }
 .card h3 { font-family: var(--pixel-font); font-size: 0.78rem; line-height: 1.6; color: var(--text-dark); }

@@ -33,10 +33,27 @@ Everything editable lives in **`js/data.js`**:
 | Hours, location, socials | `hours`, `location`, `socials` — social handles are **unconfirmed guesses** |
 | Game reward offer + threshold | `gameReward` |
 
-## Add the promo video
+## Drop-in photos & videos
 
-Drop a file at **`assets/promo.mp4`** — the hero placeholder swaps itself for the
-playing video automatically (see `MEDIA` in `js/data.js` to change the path).
+Every media slot fills itself automatically: drop a file with the right name
+into `assets/` and reload — no code changes. Each slot tries `.mp4` first
+(shown as a muted loop), then `.jpg`, `.png`, `.webp`, `.jpeg`. Until a file
+exists the site keeps its pixel-art look.
+
+| File name (in `assets/`) | Where it appears | Best shape |
+|---|---|---|
+| `promo.mp4` | Hero frame (wins over hero.jpg) | portrait ~9:12, 10–30s loop |
+| `hero` | Hero frame poster until video exists | portrait, 1080×1440+ |
+| `fun-arcade` | Unleash the Fun → Arcade Games | landscape 16:10, ~1200px wide |
+| `fun-softplay` | Unleash the Fun → Soft Play Land | landscape 16:10 |
+| `fun-cafe` | Unleash the Fun → The Café | landscape 16:10 |
+| `fun-parties` | Unleash the Fun → Parties & Events | landscape 16:10 |
+| `party-birthday` | Epic Parties → Birthday Blast | landscape 16:10 |
+| `party-school` | Epic Parties → School Day Out | landscape 16:10 |
+| `party-corporate` | Epic Parties → Corporate & Teams | landscape 16:10 |
+
+Keep videos H.264 MP4 under ~20 MB (they autoplay muted). Slot names/paths
+live in `js/data.js` (`attractions[].media`, `parties[].media`, `MEDIA`).
 
 ## The games
 
