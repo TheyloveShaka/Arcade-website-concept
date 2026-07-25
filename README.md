@@ -55,6 +55,31 @@ exists the site keeps its pixel-art look.
 Keep videos H.264 MP4 under ~20 MB (they autoplay muted). Slot names/paths
 live in `js/data.js` (`attractions[].media`, `parties[].media`, `MEDIA`).
 
+### What's filled so far (demo stock)
+
+Placed and web-optimized (sources in `_source-media/`, not committed):
+
+| Slot | Image |
+|---|---|
+| `hero` | young woman playing foosball (portrait-cropped) |
+| `fun-arcade` | colourful duck redemption machine |
+| `fun-softplay` | friends in a ball pit |
+| `fun-parties` | family laughing at racing simulators |
+| `party-corporate` | two friends laughing at skeeball |
+
+Still needed (these three cards show pixel icons until filled) —
+search terms in the shopping list the client was given:
+`fun-cafe`, `party-birthday`, `party-school`.
+
+Two spare usable shots sit in `_source-media/` if wanted later: a dance
+(DDR) arcade machine and a bowling lane. Two supplied files were **not
+used** — an iStock and a Shutterstock preview, both watermarked (and the
+video showed a competitor "Timezone" storefront).
+
+Source photos are optimized before use (cropped/downscaled, ~45–260 KB
+each) — drop full-res originals in `_source-media/` and re-run the same
+System.Drawing resize if you swap any.
+
 ## The games
 
 `js/game.js` — a mini arcade engine driving one shared cabinet canvas with
