@@ -505,13 +505,20 @@
       });
     }
 
-    // Real promo video wins over everything
-    video.src = MEDIA.promoVideo;
+    // Real promo video wins over everything; try each source until one loads
+    const sources = [].concat(MEDIA.promoVideo || []);
+    let si = 0;
+    function tryNextSource() {
+      if (si >= sources.length) return; // none loaded — poster/placeholder stays
+      video.src = sources[si++];
+    }
     video.addEventListener("loadeddata", () => {
       video.hidden = false;
       placeholder.hidden = true;
       video.play().catch(() => {});
     });
+    video.addEventListener("error", tryNextSource);
+    tryNextSource();
   }
 
   /* ---------- nav burger ---------- */

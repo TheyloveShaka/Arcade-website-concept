@@ -182,8 +182,8 @@ img, canvas { max-width: 100%; }
   margin: 0 auto;
   padding: clamp(2.5rem, 7vw, 5rem) clamp(1rem, 4vw, 2.2rem) 3rem;
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: clamp(1.5rem, 4vw, 3.5rem);
+  grid-template-columns: 1fr 1.05fr;
+  gap: clamp(1.5rem, 4vw, 3rem);
   align-items: center;
 }
 .hero-sprites { position: absolute; inset: 0; pointer-events: none; }
@@ -244,14 +244,22 @@ img, canvas { max-width: 100%; }
 
 .hero-media-frame {
   position: relative;
-  border: 4px solid var(--cyan-dark);
-  border-radius: 6px;
+  border: 5px solid var(--cyan-dark);
+  /* Expressive organic blob — echoes the bubbly logo and softens the hero */
+  border-radius: 58% 42% 47% 53% / 62% 44% 56% 38%;
   background: var(--ink);
-  aspect-ratio: 9 / 12;
-  max-height: 430px;
+  aspect-ratio: 7 / 6;
+  max-height: 460px;
   width: 100%;
   overflow: hidden;
-  box-shadow: 10px 10px 0 rgba(4, 8, 28, 0.55);
+  box-shadow: 0 14px 34px rgba(4, 8, 28, 0.55);
+  animation: blob-morph 14s ease-in-out infinite;
+}
+/* Slow, gentle morph so the blob feels alive without distracting */
+@keyframes blob-morph {
+  0%, 100% { border-radius: 58% 42% 47% 53% / 62% 44% 56% 38%; }
+  33%      { border-radius: 46% 54% 63% 37% / 49% 63% 37% 51%; }
+  66%      { border-radius: 63% 37% 41% 59% / 54% 41% 59% 46%; }
 }
 .hero-media-frame video { width: 100%; height: 100%; object-fit: cover; }
 .hero-media-placeholder {
@@ -807,7 +815,7 @@ img, canvas { max-width: 100%; }
 
 @media (prefers-reduced-motion: reduce) {
   .ticker-track, .hero-sprites .pixel-sprite, .footer-sprites .pixel-sprite,
-  .hero-badge, .cabinet-marquee { animation: none; }
+  .hero-badge, .cabinet-marquee, .hero-media-frame { animation: none; }
   html { scroll-behavior: auto; }
   .reveal { opacity: 1; transform: none; transition: none; }
   .game-card, .game-cards:hover .game-card { transition: none; }

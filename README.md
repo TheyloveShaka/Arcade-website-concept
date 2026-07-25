@@ -61,15 +61,20 @@ Placed and web-optimized (sources in `_source-media/`, not committed):
 
 | Slot | Image |
 |---|---|
-| `hero` | young woman playing foosball (portrait-cropped) |
+| `hero` | promo.webm — arcade B-roll (demo placeholder, see note) |
 | `fun-arcade` | colourful duck redemption machine |
 | `fun-softplay` | friends in a ball pit |
+| `fun-cafe` | friends with food in a neon arcade (AI-generated) |
 | `fun-parties` | family laughing at racing simulators |
 | `party-corporate` | two friends laughing at skeeball |
 
-Still needed (these three cards show pixel icons until filled) —
-search terms in the shopping list the client was given:
-`fun-cafe`, `party-birthday`, `party-school`.
+The hero video is a **demo placeholder only**: it carries a Shutterstock
+watermark and shows a competitor ("Timezone") storefront — replace it with
+real Bulungi Town footage (`assets/promo.mp4`, portrait ~9:12) before launch.
+The hero frame is an animated organic blob (`.hero-media-frame`).
+
+Still needed (these two cards show pixel icons until filled):
+`party-birthday`, `party-school`.
 
 Two spare usable shots sit in `_source-media/` if wanted later: a dance
 (DDR) arcade machine and a bowling lane. Two supplied files were **not

@@ -164,8 +164,9 @@ const SITE = {
 };
 
 /* Hero media — drop real files at these paths and they appear automatically.
-   promo.mp4 wins if both exist; hero.jpg/.png shows as a poster until then. */
+   A promo video wins over the poster; the video slot tries .mp4 then .webm.
+   hero.jpg/.png shows as a poster until a video exists. */
 const MEDIA = {
-  promoVideo: "assets/promo.mp4",   // hero video (portrait ~9:12 looks best)
+  promoVideo: ["assets/promo.mp4", "assets/promo.webm"], // first that loads wins
   heroPoster: "hero",               // tries assets/hero.jpg / .png / .webp
 };
