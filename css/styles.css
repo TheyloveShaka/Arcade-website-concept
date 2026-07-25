@@ -182,8 +182,8 @@ img, canvas { max-width: 100%; }
   margin: 0 auto;
   padding: clamp(2.5rem, 7vw, 5rem) clamp(1rem, 4vw, 2.2rem) 3rem;
   display: grid;
-  grid-template-columns: 1fr 1.05fr;
-  gap: clamp(1.5rem, 4vw, 3rem);
+  grid-template-columns: 0.88fr 1.18fr;
+  gap: clamp(1.5rem, 4vw, 2.5rem);
   align-items: center;
 }
 .hero-sprites { position: absolute; inset: 0; pointer-events: none; }
@@ -242,26 +242,43 @@ img, canvas { max-width: 100%; }
 .hero-desc strong, .hero-desc em { color: var(--text-light); }
 .hero-ctas { display: flex; flex-wrap: wrap; gap: 0.9rem; }
 
+/* Big expressive blob: an irregular clip-path fills the hero's right side.
+   The clip masks the media; a matching stroked SVG draws the cyan outline. */
 .hero-media-frame {
   position: relative;
-  border: 5px solid var(--cyan-dark);
-  /* Expressive organic blob — echoes the bubbly logo and softens the hero */
-  border-radius: 58% 42% 47% 53% / 62% 44% 56% 38%;
-  background: var(--ink);
-  aspect-ratio: 7 / 6;
-  max-height: 460px;
+  aspect-ratio: 5 / 4;
+  max-height: 540px;
   width: 100%;
+  filter: drop-shadow(0 16px 30px rgba(4, 8, 28, 0.55));
+  animation: blob-float 7s ease-in-out infinite;
+}
+@keyframes blob-float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50%      { transform: translateY(-10px) rotate(-1deg); }
+}
+.hero-blob-def { position: absolute; width: 0; height: 0; }
+.hero-media-clip {
+  position: absolute;
+  inset: 0;
+  background: var(--ink);
+  clip-path: url(#heroBlob);
   overflow: hidden;
-  box-shadow: 0 14px 34px rgba(4, 8, 28, 0.55);
-  animation: blob-morph 14s ease-in-out infinite;
 }
-/* Slow, gentle morph so the blob feels alive without distracting */
-@keyframes blob-morph {
-  0%, 100% { border-radius: 58% 42% 47% 53% / 62% 44% 56% 38%; }
-  33%      { border-radius: 46% 54% 63% 37% / 49% 63% 37% 51%; }
-  66%      { border-radius: 63% 37% 41% 59% / 54% 41% 59% 46%; }
+.hero-blob-outline {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  pointer-events: none;
 }
-.hero-media-frame video { width: 100%; height: 100%; object-fit: cover; }
+.hero-blob-outline path {
+  fill: none;
+  stroke: var(--cyan);
+  stroke-width: 4;
+  vector-effect: non-scaling-stroke;
+}
+.hero-media-clip video { width: 100%; height: 100%; object-fit: cover; }
 .hero-media-placeholder {
   position: absolute; inset: 0;
   display: flex; flex-direction: column;

@@ -75,12 +75,25 @@
       <!-- Video slot: drop assets/promo.mp4 into the project and this becomes a video -->
       <div class="hero-media" id="hero-media">
         <div class="hero-media-frame">
-          <video id="promo-video" playsinline muted loop autoplay hidden></video>
-          <div class="hero-media-placeholder" id="promo-placeholder">
-            <img class="promo-logo" src="assets/logo.jpg" alt="" aria-hidden="true" />
-            <p class="pixel-font">PROMO VIDEO<br/>COMING SOON</p>
-            <p class="hint">drop <code>assets/promo.mp4</code> in the project<br/>and it plays here automatically</p>
+          <!-- Irregular organic blob mask + matching cyan outline -->
+          <svg class="hero-blob-def" width="0" height="0" aria-hidden="true">
+            <defs>
+              <clipPath id="heroBlob" clipPathUnits="objectBoundingBox">
+                <path d="M0.5 0.05 C0.69 0.01 0.87 0.05 0.94 0.2 C1 0.33 0.96 0.47 0.99 0.61 C1.01 0.76 0.9 0.91 0.72 0.96 C0.59 0.99 0.43 0.97 0.3 0.93 C0.13 0.87 0.02 0.75 0.03 0.57 C0.04 0.43 0 0.29 0.11 0.17 C0.21 0.06 0.34 0.09 0.5 0.05 Z" />
+              </clipPath>
+            </defs>
+          </svg>
+          <div class="hero-media-clip">
+            <video id="promo-video" playsinline muted loop autoplay hidden></video>
+            <div class="hero-media-placeholder" id="promo-placeholder">
+              <img class="promo-logo" src="assets/logo.jpg" alt="" aria-hidden="true" />
+              <p class="pixel-font">PROMO VIDEO<br/>COMING SOON</p>
+              <p class="hint">drop <code>assets/promo.mp4</code> in the project<br/>and it plays here automatically</p>
+            </div>
           </div>
+          <svg class="hero-blob-outline" viewBox="0 0 1 1" preserveAspectRatio="none" aria-hidden="true">
+            <path d="M0.5 0.05 C0.69 0.01 0.87 0.05 0.94 0.2 C1 0.33 0.96 0.47 0.99 0.61 C1.01 0.76 0.9 0.91 0.72 0.96 C0.59 0.99 0.43 0.97 0.3 0.93 C0.13 0.87 0.02 0.75 0.03 0.57 C0.04 0.43 0 0.29 0.11 0.17 C0.21 0.06 0.34 0.09 0.5 0.05 Z" />
+          </svg>
         </div>
       </div>
     </section>

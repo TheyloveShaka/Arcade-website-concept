@@ -66,15 +66,17 @@ Placed and web-optimized (sources in `_source-media/`, not committed):
 | `fun-softplay` | friends in a ball pit |
 | `fun-cafe` | friends with food in a neon arcade (AI-generated) |
 | `fun-parties` | family laughing at racing simulators |
+| `party-birthday` | kids around a birthday cake in soft play (AI-generated) |
 | `party-corporate` | two friends laughing at skeeball |
 
 The hero video is a **demo placeholder only**: it carries a Shutterstock
 watermark and shows a competitor ("Timezone") storefront — replace it with
-real Bulungi Town footage (`assets/promo.mp4`, portrait ~9:12) before launch.
-The hero frame is an animated organic blob (`.hero-media-frame`).
+real Bulungi Town footage (`assets/promo.mp4`, ~5:4 fills the blob best)
+before launch. The hero frame is a large irregular organic blob: an SVG
+`clip-path` (`#heroBlob`) masks the media and a matching stroked SVG draws
+the cyan outline — edit both paths together in `index.html` to reshape it.
 
-Still needed (these two cards show pixel icons until filled):
-`party-birthday`, `party-school`.
+Still needed (this card shows a pixel icon until filled): `party-school`.
 
 Two spare usable shots sit in `_source-media/` if wanted later: a dance
 (DDR) arcade machine and a bowling lane. Two supplied files were **not
