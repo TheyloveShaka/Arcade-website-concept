@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bulungi Town — Café, Arcade & Soft Play at Lugogo Mall, Kampala</title>
+  <meta name="description" content="Bulungi Town is Kampala's new family fun spot at Lugogo Mall — arcade games, soft play, café and unforgettable birthday parties. Play our games, then come play for real." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Titan+One&family=Nunito:wght@400;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="icon" type="image/jpeg" href="assets/logo.jpg" />
+</head>
+<body>
+
+  <!-- ============ TICKER ============ -->
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-track" id="ticker-track"></div>
+  </div>
+
+  <!-- ============ NAV ============ -->
+  <header class="nav" id="top">
+    <a class="nav-logo" href="#top" aria-label="Bulungi Town home">
+      <img class="nav-logo-img" src="assets/logo.jpg" alt="Bulungi Town logo" />
+      <span class="nav-logo-text">BULUNGI<em>TOWN</em></span>
+    </a>
+    <nav class="nav-links" id="nav-links" aria-label="Main">
+      <a href="#fun">The Fun</a>
+      <a href="#games">Games</a>
+      <a href="#prices">Prices</a>
+      <a href="#parties">Parties</a>
+      <a href="#visit">Visit</a>
+    </nav>
+    <a class="btn btn-whatsapp nav-book" data-wa="Booking enquiry" href="#">
+      <span class="wa-icon" aria-hidden="true"></span> Book Now
+    </a>
+    <button class="nav-burger" id="nav-burger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <main>
+    <!-- ============ HERO ============ -->
+    <section class="hero">
+      <div class="hero-sprites" aria-hidden="true">
+        <canvas class="pixel-sprite float-a" data-sprite="invader" data-scale="4"></canvas>
+        <canvas class="pixel-sprite float-b" data-sprite="ghost" data-scale="4"></canvas>
+        <canvas class="pixel-sprite float-c" data-sprite="star" data-scale="3"></canvas>
+        <canvas class="pixel-sprite float-d" data-sprite="cherry" data-scale="3"></canvas>
+        <canvas class="pixel-sprite float-e" data-sprite="coin" data-scale="3"></canvas>
+      </div>
+
+      <div class="hero-inner">
+        <p class="hero-badge" id="hero-badge"></p>
+        <h1 class="hero-title">
+          <span class="ht-line c-cyan">GAME.</span>
+          <span class="ht-line c-yellow">PLAY.</span>
+          <span class="ht-line c-white">PARTY!</span>
+        </h1>
+        <p class="hero-sub" id="hero-tagline"></p>
+        <p class="hero-desc">
+          Kampala's happiest place to play — arcade machines, a soft play wonderland
+          and a proper café, all under one roof at Lugogo Mall.
+          <strong>Bulungi</strong> means <em>good</em> in Luganda.
+          We mean <em>really, really</em> good.
+        </p>
+        <div class="hero-ctas">
+          <a class="btn btn-whatsapp" data-wa="Booking enquiry" href="#">
+            <span class="wa-icon" aria-hidden="true"></span> Book on WhatsApp
+          </a>
+          <a class="btn btn-ghost" href="#games">▶ Play Our Games</a>
+        </div>
+      </div>
+
+      <!-- Video slot: drop assets/promo.mp4 into the project and this becomes a video -->
+      <div class="hero-media" id="hero-media">
+        <div class="hero-media-frame">
+          <!-- Irregular organic blob mask + matching cyan outline -->
+          <svg class="hero-blob-def" width="0" height="0" aria-hidden="true">
+            <defs>
+              <clipPath id="heroBlob" clipPathUnits="objectBoundingBox">
+                <path d="M0.5 0.05 C0.69 0.01 0.87 0.05 0.94 0.2 C1 0.33 0.96 0.47 0.99 0.61 C1.01 0.76 0.9 0.91 0.72 0.96 C0.59 0.99 0.43 0.97 0.3 0.93 C0.13 0.87 0.02 0.75 0.03 0.57 C0.04 0.43 0 0.29 0.11 0.17 C0.21 0.06 0.34 0.09 0.5 0.05 Z" />
+              </clipPath>
+            </defs>
+          </svg>
+          <div class="hero-media-clip">
+            <video id="promo-video" playsinline muted loop autoplay hidden></video>
+            <div class="hero-media-placeholder" id="promo-placeholder">
+              <img class="promo-logo" src="assets/logo.jpg" alt="" aria-hidden="true" />
+              <p class="pixel-font">PROMO VIDEO<br/>COMING SOON</p>
+              <p class="hint">drop <code>assets/promo.mp4</code> in the project<br/>and it plays here automatically</p>
+            </div>
+          </div>
+          <svg class="hero-blob-outline" viewBox="0 0 1 1" preserveAspectRatio="none" aria-hidden="true">
+            <path d="M0.5 0.05 C0.69 0.01 0.87 0.05 0.94 0.2 C1 0.33 0.96 0.47 0.99 0.61 C1.01 0.76 0.9 0.91 0.72 0.96 C0.59 0.99 0.43 0.97 0.3 0.93 C0.13 0.87 0.02 0.75 0.03 0.57 C0.04 0.43 0 0.29 0.11 0.17 C0.21 0.06 0.34 0.09 0.5 0.05 Z" />
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <div class="pixel-sep sep-a" aria-hidden="true"></div>
+
+    <!-- ============ ATTRACTIONS ============ -->
+    <section class="section" id="fun">
+      <div class="section-head">
+        <canvas class="pixel-sprite" data-sprite="invader" data-scale="4" aria-hidden="true"></canvas>
+        <h2 class="section-title">UNLEASH <span class="c-cyan">THE FUN</span></h2>
+        <p class="section-sub">Four worlds of play. Zero boredom. One very happy family.</p>
+      </div>
+      <div class="cards-grid" id="attractions-grid"></div>
+    </section>
+
+    <!-- ============ DEALS ============ -->
+    <section class="section section-tint">
+      <div class="section-head">
+        <h2 class="section-title">WEEKLY <span class="c-yellow">POWER-UPS</span></h2>
+        <p class="section-sub">Come back for more — every week has its bonus level.</p>
+      </div>
+      <div class="deals-row" id="deals-row"></div>
+    </section>
+
+    <div class="pixel-sep sep-b" aria-hidden="true"></div>
+
+    <!-- ============ GAMES ============ -->
+    <section class="section section-dark" id="games">
+      <div class="section-head">
+        <h2 class="section-title">PICK YOUR <span class="c-yellow">GAME</span></h2>
+        <p class="section-sub">
+          Can't wait to visit? Here's a free taste of Bulungi Town —
+          three games, one cabinet, eternal glory on the leaderboard.
+        </p>
+      </div>
+
+      <div class="game-cards" id="game-cards"></div>
+
+      <div class="cabinet" id="cabinet">
+        <div class="cabinet-marquee pixel-font">★ <span id="cabinet-game-name">BULUNGI BLAST</span> ★</div>
+        <div class="cabinet-screen">
+          <canvas id="blast-canvas" aria-label="Bulungi Town arcade cabinet — playable mini games. Use arrow keys or touch."></canvas>
+          <button id="blast-mute" class="cabinet-mute" aria-label="Mute game sounds">🔊</button>
+        </div>
+        <div class="cabinet-deck">
+          <div class="cabinet-joystick" aria-hidden="true"><span></span></div>
+          <div class="cabinet-controls pixel-font">
+            <span class="ctl-desktop">arrows / A-D · SPACE to start</span>
+            <span class="ctl-mobile">tap & drag to play</span>
+          </div>
+          <div class="cabinet-buttons" aria-hidden="true"><i></i><i></i><i></i></div>
+        </div>
+      </div>
+
+      <div class="game-reward" id="game-reward" hidden>
+        <p class="pixel-font c-yellow" id="game-reward-title">NICE SCORE!</p>
+        <p id="game-reward-text"></p>
+        <form class="lb-entry" id="lb-entry">
+          <input id="lb-name" class="lb-name-input" type="text" maxlength="12"
+                 placeholder="YOUR NAME" autocomplete="off" aria-label="Your name for the leaderboard" />
+          <button type="submit" class="btn btn-yellow">Save Score</button>
+        </form>
+        <a class="btn btn-whatsapp" id="game-share" href="#">
+          <span class="wa-icon" aria-hidden="true"></span> Brag on WhatsApp
+        </a>
+      </div>
+
+      <!-- ============ LEADERBOARD ============ -->
+      <div class="leaderboard" id="leaderboard">
+        <h3 class="pixel-font lb-title">★ HALL OF FAME ★</h3>
+        <div class="lb-tabs" id="lb-tabs" role="tablist"></div>
+        <ol class="lb-list" id="lb-list"></ol>
+        <p class="lb-empty" id="lb-empty" hidden>No scores yet — be the first legend!</p>
+        <button class="btn btn-ghost-light lb-toggle" id="lb-toggle" hidden>Show All</button>
+      </div>
+
+      <p class="game-hook" id="game-hook"></p>
+    </section>
+
+    <div class="pixel-sep sep-c" aria-hidden="true"></div>
+
+    <!-- ============ PRICING ============ -->
+    <section class="section" id="prices">
+      <div class="section-head">
+        <canvas class="pixel-sprite" data-sprite="coin" data-scale="4" aria-hidden="true"></canvas>
+        <h2 class="section-title">GAME <span class="c-cyan">CARDS</span></h2>
+        <p class="section-sub">Load up a card, tap any machine, play everything. Credits never expire.</p>
+      </div>
+      <div class="pricing-grid" id="pricing-grid"></div>
+      <p class="fine-print">Demo prices — final pricing to be confirmed at launch.</p>
+    </section>
+
+    <!-- ============ PARTIES ============ -->
+    <section class="section section-tint" id="parties">
+      <div class="section-head">
+        <canvas class="pixel-sprite" data-sprite="cake" data-scale="4" aria-hidden="true"></canvas>
+        <h2 class="section-title">EPIC <span class="c-yellow">PARTIES</span></h2>
+        <p class="section-sub">The party of the year, minus the stress. We set up, host and clean up.</p>
+      </div>
+      <div class="cards-grid" id="parties-grid"></div>
+      <div class="center">
+        <a class="btn btn-whatsapp btn-big" data-wa="Party booking enquiry" href="#">
+          <span class="wa-icon" aria-hidden="true"></span> Plan My Party
+        </a>
+      </div>
+    </section>
+
+    <div class="pixel-sep sep-a" aria-hidden="true"></div>
+
+    <!-- ============ TESTIMONIALS ============ -->
+    <section class="section">
+      <div class="section-head">
+        <h2 class="section-title">HAPPY <span class="c-cyan">PLAYERS</span></h2>
+      </div>
+      <div class="quotes-row" id="quotes-row"></div>
+    </section>
+
+    <!-- ============ VISIT ============ -->
+    <section class="section section-dark" id="visit">
+      <div class="section-head">
+        <h2 class="section-title">COME <span class="c-cyan">FIND US</span></h2>
+      </div>
+      <div class="visit-grid">
+        <div class="visit-card">
+          <h3 class="pixel-font c-yellow">WHERE</h3>
+          <p id="visit-where"></p>
+          <a class="btn btn-ghost-light" id="visit-maps" href="#" target="_blank" rel="noopener">Open in Maps ↗</a>
+        </div>
+        <div class="visit-card">
+          <h3 class="pixel-font c-cyan">WHEN</h3>
+          <ul class="hours-list" id="hours-list"></ul>
+        </div>
+        <div class="visit-card">
+          <h3 class="pixel-font c-lime">SAY HI</h3>
+          <p>Questions, bookings, big ideas — we're one tap away.</p>
+          <a class="btn btn-whatsapp" data-wa="Hello! I have a question" href="#">
+            <span class="wa-icon" aria-hidden="true"></span> WhatsApp Us
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="footer-sprites" aria-hidden="true">
+      <canvas class="pixel-sprite" data-sprite="ghost" data-scale="3"></canvas>
+      <canvas class="pixel-sprite" data-sprite="invader" data-scale="3"></canvas>
+      <canvas class="pixel-sprite" data-sprite="cherry" data-scale="3"></canvas>
+      <canvas class="pixel-sprite" data-sprite="star" data-scale="3"></canvas>
+    </div>
+    <img class="footer-logo-img" src="assets/logo.jpg" alt="Bulungi Town logo" />
+    <div class="footer-socials" id="footer-socials"></div>
+    <p class="footer-note">© <span id="year"></span> Bulungi Town · Lugogo Mall, Kampala · Made with ❤ in Uganda</p>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/game.js"></script>
+</body>
+</html>

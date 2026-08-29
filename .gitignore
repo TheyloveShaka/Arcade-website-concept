@@ -1,0 +1,8 @@
+# Full-resolution source photos/videos (originals + watermarked comps + unused
+# extras). Kept locally for re-editing; the site serves optimized copies in
+# assets/. Not committed — they are large and some are unlicensed previews.
+_source-media/
+
+# OS / editor cruft
+Thumbs.db
+.DS_Store
